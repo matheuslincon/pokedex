@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
 
   const [ allPokemons, setAllPokemons ] = useState([]);
-  const [ showMore, setShowMore ] = useState('https://pokeapi.co/api/v2/pokemon?limit=100')
+  const [ showMore, setShowMore ] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
+
+  const getAllPokemons = async () => {
+    const res = await fetch(showMore)
+    const data = await res.json()
+
+    setShowMore(data.next)
+  }
+
+  useEffect(() => {
+  getAllPokemons()
+  }, [])
+
 
   return (
     <div className="app-container">
