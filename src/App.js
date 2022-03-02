@@ -4,7 +4,7 @@ import PokemonBlock from './components/PokemonBlock'
 function App() {
 
   const [ allPokemons, setAllPokemons ] = useState([]);
-  const [ showMore, setShowMore ] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
+  const [ showMore, setShowMore ] = useState('https://pokeapi.co/api/v2/pokemon?limit=100')
 
   const getAllPokemons = async () => {
     const res = await fetch(showMore)
