@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PokemonBlock from './components/PokemonBlock'
 
 function App() {
 
@@ -31,7 +32,16 @@ function App() {
     <div className="app-container">
       <h1>Pokedex</h1>
       <div className="pokemon-container">
-
+        <div className="all-container">
+          {allPokemons.map( (pokemonStats, index) =>
+              <PokemonBlock
+              key={index}
+              id={pokemonStats.id}
+              image={pokemonStats.sprites.other.dream_world.front_default}
+              name={pokemonStats.name}
+              type={pokemonStats.types[0].type.name}
+          />)}
+        </div>
       </div>
       <button className="show-more">Show More !</button>
     </div>
